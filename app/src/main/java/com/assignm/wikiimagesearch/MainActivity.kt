@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         search_query.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
                 if(isOnline()){
+                    adapter?.clearData()
                     if(query.isEmpty()){
                         no_results.visibility= View.VISIBLE
                         search_results.visibility= View.GONE
@@ -139,4 +140,5 @@ class MainActivity : AppCompatActivity() {
         val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
 }
