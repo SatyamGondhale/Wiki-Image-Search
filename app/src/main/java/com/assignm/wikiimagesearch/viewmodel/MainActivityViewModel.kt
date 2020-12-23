@@ -11,10 +11,14 @@ import kotlinx.coroutines.launch
 
 class MainActivityViewModel(application: Application):AndroidViewModel(application) {
     var vmThumbNailDataList: MutableLiveData<ArrayList<Pages>>? = null
+    var repository:Repository?=null
 
+    init {
+        repository=Repository()
+    }
     fun getLiveDataSearchResponse(searchQuery:String,thumb_size:Int):LiveData<ArrayList<Pages>>?{
         viewModelScope.launch {
-            vmThumbNailDataList= Repository.getDataFromApi(searchQuery,thumb_size)
+            vmThumbNailDataList= repository?.getDataFromApi(searchQuery,thumb_size)
         }
         return vmThumbNailDataList
     }

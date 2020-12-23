@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-object Repository{
+class Repository{
     val repoThumbNailDataList=MutableLiveData<ArrayList<Pages>>()
     var apiService: ApiService? = null
     init {
