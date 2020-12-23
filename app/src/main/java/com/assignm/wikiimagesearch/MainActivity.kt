@@ -119,6 +119,11 @@ class MainActivity : AppCompatActivity() {
         alertDialog.show()
     }
 
+    override fun onPause() {
+        super.onPause()
+        search_query.clearFocus()
+    }
+
     override fun onBackPressed() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.exit_app)

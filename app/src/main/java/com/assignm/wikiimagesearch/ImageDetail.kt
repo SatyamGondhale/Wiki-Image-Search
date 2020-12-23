@@ -9,6 +9,7 @@ class ImageDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.image_detail)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         val image:String?=intent.getStringExtra("image_name")
         val image_url:String?=intent.getStringExtra("image_url")
         val finalName=image?.substringAfter("\"")?.substringBefore("\"")
