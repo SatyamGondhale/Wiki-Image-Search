@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Wiki Image Search</string>
+    <string name="no_internet">No Internet</string>
+    <string name="no_internet_message">You are required to have Internet to access this.</string>
+    <string name="exit_app">Exit</string>
+    <string name="exit_app_permission">Are you sure to exit the app ?</string>
+</resources>
