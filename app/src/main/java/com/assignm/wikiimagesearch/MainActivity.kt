@@ -65,17 +65,21 @@ class MainActivity : AppCompatActivity() {
         mainActivityViewModel!!.getLiveDataSearchResponse(searchQuery,500)!!.observe(this,
                 Observer<ArrayList<Pages>>(
                 ){
-                    if(it.size>0){
-                        no_results.visibility= View.GONE
-                        search_results.visibility=View.VISIBLE
-                        adapter=SearchResultsAdapter(it,applicationContext as Application)
-                        search_results.adapter=adapter
-                        adapter?.notifyDataSetChanged()
+                    if(it!=null){
+                        if(it.size>0){
+                            no_results.visibility= View.GONE
+                            search_results.visibility=View.VISIBLE
+                            adapter=SearchResultsAdapter(it,applicationContext as Application)
+                            search_results.adapter=adapter
+                            adapter?.notifyDataSetChanged()
+                        }else{
+                            no_results.visibility= View.VISIBLE
+                            search_results.visibility=View.GONE
+                        }
                     }else{
                         no_results.visibility= View.VISIBLE
                         search_results.visibility=View.GONE
                     }
-
                 });
     }
 
