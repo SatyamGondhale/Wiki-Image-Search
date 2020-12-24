@@ -37,6 +37,7 @@ class SearchResultsAdapter(var imagesList:ArrayList<Pages>, var context:Context)
         picasso.load(finalUrl).placeholder(context.resources.getDrawable(R.drawable.loading)).fit().centerCrop().into(holder.image_src)
         holder.image_src.setOnClickListener {
             val intent=Intent(context, ImageDetail::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra("image_name",imagesList.get(position).title)
             intent.putExtra("image_url",imagesList.get(position).thumbnail.source)
             startActivity(context,intent,null)
